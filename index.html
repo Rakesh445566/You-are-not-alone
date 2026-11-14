@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You Are Not Alone</title>
+<style>
+body{font-family:Arial,sans-serif;background:#FFF7ED;text-align:center;padding:20px;color:#333;margin:0}
+h1{color:#EA580C}
+.box{background:#fff;padding:20px;border-radius:15px;margin:15px auto;max-width:500px;box-shadow:0 2px 10px #ddd}
+button{background:#EA580C;color:#fff;border:none;padding:12px 20px;border-radius:10px;font-size:16px;cursor:pointer}
+textarea{width:90%;height:80px;border-radius:10px;padding:10px;border:1px solid #ccc}
+a{color:#EA580C;font-weight:bold;text-decoration:none}
+</style>
+</head>
+<body>
+<h1>You Are Not Alone</h1>
+<p>Nuvvu okkadivi kadu KING. Ee roju kastam ga unna, repu baguntundi.</p>
+
+<div class="box">
+<h2>Roju Quote</h2>
+<p id="quote">Loading...</p>
+<button onclick="newQuote()">Kottha Quote</button>
+</div>
+
+<div class="box">
+<h2>Naa Diary</h2>
+<textarea id="diary" placeholder="Ikkada emaina rasukoo..."></textarea><br><br>
+<button onclick="saveDiary()">Save Chesuko</button>
+<p id="saved"></p>
+</div>
+
+<div class="box">
+<h2>Help Kavali Ante</h2>
+<p>Tele MANAS: <a href="tel:14416">14416</a><br><br>
+Vandrevala: <a href="tel:18602662345">1860-2662-345</a><br><br>
+iCall: <a href="tel:9152987821">9152987821</a></p>
+<p>Doctor tho matladadam lo siggu ledu KING.</p>
+</div>
+
+<script>
+var quotes = [
+"Ee badha permanent kadu, nuvvu strong.",
+"Nuvvu intha varaku vachav ante, nuvve great.",
+"Rest teesukovadam kuda progress ye.",
+"Nee kosam evaro okaru untaru.",
+"Chinna chinna steps chalu, pedda jump avasaram ledu."
+];
+function newQuote() {
+var i = Math.floor(Math.random() * quotes.length);
+document.getElementById("quote").innerText = quotes[i];
+}
+newQuote();
+function saveDiary() {
+var val = document.getElementById("diary").value;
+localStorage.setItem("diary", val);
+document.getElementById("saved").innerText = "Save aindi KING";
+}
+var old = localStorage.getItem("diary");
+if (old) {
+document.getElementById("diary").value = old;
+}
+</script>
+</body>
+</html>
