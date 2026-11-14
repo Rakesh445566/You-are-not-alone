@@ -3,191 +3,152 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>You Are Not Alone - V4 MEGA 50 by Muthyala Rakesh</title>
+<title>You Are Not Alone - V7 by Muthyala Rakesh</title>
 <style>
-*{
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  user-select: none;
-  -webkit-user-select: none;
-}
-button{
-  touch-action: manipulation;
-  outline: none !important;
-  -webkit-user-select: none;
-  user-select: none;
-}
-button:focus{
-  outline: none !important;
-  box-shadow: none !important;
-}
-button:active{
-  transform: scale(0.96);
-}
-.moodBtn:focus, .moodBtn:active{
-  outline: none !important;
-  border: 2px solid #FFE4C4 !important;
-}
-input, textarea{
-  user-select: text;
-  -webkit-user-select: text;
-}
-body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#FFEDD5,#FDE68A);text-align:center;padding:12px;margin:0;transition:0.3s}
+html{-webkit-tap-highlight-color:transparent}
+body{font-family:Arial,sans-serif;background:#FFE9C9;text-align:center;padding:12px;margin:0}
 body.dark{background:#111827;color:#fff}.dark .box{background:#1F2937;color:#fff}.dark #chatbox{color:#333}
-body.king{background:linear-gradient(135deg,#FFD700,#FFA500)}body.king .box{background:#FFF7CC;border:3px solid #FFD700}
+body.king{background:#FFD700}.king .box{background:#FFF7CC;border:3px solid #B8860B}
 body.blue{background:#BFDBFE}body.green{background:#BBF7D0}body.pink{background:#FBCFE8}
 .box{background:#fff;padding:18px;border-radius:20px;margin:12px auto;max-width:540px;box-shadow:0 4px 20px rgba(0,0,0,.1)}
-button{background:#EA580C;color:#fff;border:none;padding:11px 18px;border-radius:12px;font-size:15px;cursor:pointer;margin:3px}
-textarea,input{width:90%;padding:11px;border-radius:12px;border:1px solid #ddd;margin:5px}
+button{background:#EA580C;color:#fff;border:none;padding:12px 18px;border-radius:12px;font-size:15px;margin:3px;cursor:pointer}
+button:active{transform:scale(0.97)}
+textarea,input{width:90%;padding:11px;border-radius:12px;border:1px solid #ddd;margin:5px;font-size:15px;box-sizing:border-box}
 #chatbox{text-align:left;background:#FFF7ED;padding:12px;border-radius:12px;height:180px;overflow-y:auto;color:#333}
-.moodBtn{font-size:28px;background:#FFF7ED;padding:8px 12px;border-radius:12px;border:2px solid #FFE4C4;cursor:pointer}
+.moodBtn{font-size:28px;background:#FFF7ED;padding:8px 12px;border-radius:12px;border:2px solid #FFE4C4}
 #breathCircle{width:110px;height:110px;background:#3B82F6;border-radius:50%;margin:12px auto;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;transition:transform 4s}
-#canvasGame{border:2px solid #333;background:#fff;border-radius:10px}
-#drawCanvas{border:2px solid #333;background:#fff;border-radius:10px;touch-action:none}
-#punch{font-size:80px;cursor:pointer}
-#pet{font-size:70px}
-#heartBig{font-size:80px;cursor:pointer}
-.footer{font-weight:bold}
+#canvasGame,#drawCanvas{border:2px solid #333;background:#fff;border-radius:10px}
+#drawCanvas{touch-action:none}#punch{font-size:80px;cursor:pointer}#pet{font-size:70px}#heartBig{font-size:80px;cursor:pointer}.footer{font-weight:bold}
 </style>
 </head>
 <body>
 <h1>You Are Not Alone 🤗</h1>
 <p id="greet">Nuvvu okkadivi kadu KING.</p>
-<p>🔥 V4 MEGA 50 - Made by Muthyala Rakesh 👑</p>
-
+<p>🔥 V7 - Made by Muthyala Rakesh 👑</p>
 <div>
-<button onclick="toggleDark()">🌙 Night</button>
-<button onclick="toggleKing()" style="background:#FFD700;color:#000">👑 KING MODE</button>
-<button onclick="setColor('blue')">🔵 Blue</button>
-<button onclick="setColor('green')">🟢 Green</button>
-<button onclick="setColor('pink')">🌸 Pink</button>
-<button onclick="setColor('')">🟠 Orange</button>
+<button type="button" onclick="toggleDark()">🌙 Night</button>
+<button type="button" onclick="toggleKing()" style="background:#FFD700;color:#000">👑 KING MODE</button>
+<button type="button" onclick="setColor('blue')">🔵 Blue</button>
+<button type="button" onclick="setColor('green')">🟢 Green</button>
+<button type="button" onclick="setColor('pink')">🌸 Pink</button>
+<button type="button" onclick="setColor('')">🟠 Orange</button>
 </div>
-
 <div class="box"><h2>🎁 Gift Box</h2><div style="font-size:55px;cursor:pointer" onclick="openGift()">🎁</div><p id="giftMsg">Nokku KING!</p></div>
 <div class="box"><h2>🎭 Mood</h2>
-<button class="moodBtn" onclick="setMood('happy')">😊</button><button class="moodBtn" onclick="setMood('sad')">😢</button><button class="moodBtn" onclick="setMood('angry')">😡</button><button class="moodBtn" onclick="setMood('tired')">😴</button>
+<button type="button" class="moodBtn" onclick="setMood('happy')">😊</button>
+<button type="button" class="moodBtn" onclick="setMood('sad')">😢</button>
+<button type="button" class="moodBtn" onclick="setMood('angry')">😡</button>
+<button type="button" class="moodBtn" onclick="setMood('tired')">😴</button>
 <p id="moodMsg">Select chey</p><p id="streakMsg"></p><p id="detectiveMsg"></p></div>
-<div class="box"><h2>✨ Quote + Fortune</h2><p id="quote">Loading...</p><button onclick="newQuote()">Quote</button> <button onclick="fortune()">🔮 Fortune Chudu</button><p id="fortuneMsg"></p></div>
-
-<div class="box"><h2>🤖 AI Best Friend + Voice</h2><div id="chatbox"><p><b>AI:</b> Hi KING! Nenu nee friend ni! 50 features tho vacha!</p></div><input id="userInput" placeholder="Matladu KING..."><br><button onclick="sendMsg()">Pampu</button> <button onclick="voiceMsg()">🎤 Voice</button></div>
-<div class="box"><h2>📓 Diary + Lock 🔒</h2><input type="password" id="diaryPass" placeholder="Password pettu - Ex: 1234"><textarea id="diary" placeholder="Secret rayi..."></textarea><br><button onclick="saveDiary()">Save</button> <button onclick="lockDiary()">Lock Chey</button><p id="saved"></p></div>
-
-<div class="box"><h2>🫁 Breathing + 🧊 Ice Cool</h2><div id="breathCircle">Breathe</div><button onclick="startBreath()">Start Breathing</button><p id="breathMsg">Nose tho pilchu, nora tho vadulu</p><button onclick="alert('Oka glass cold water thagu KING! 🧊 10 sec kallu moosuko! Cool aipothav!')">🧊 Cool Avvu</button></div>
-<div class="box"><h2>🔥 Badha Burn + 🥊 Kopa Punch</h2><textarea id="badhaText" placeholder="Badha rayi..."></textarea><br><button onclick="burnBadha()" style="background:#DC2626">🔥 BURN</button><p id="burnMsg"></p><div id="punch" onclick="punchBag()">🥊</div><p id="punchMsg">Punch Bag ni 10 sarlu kottu! Kopam pothundi!</p><p>Kopam Count: <span id="punchCount">0</span></p></div>
-
-<div class="box"><h2>🎯 Goal + 🚀 Dream + 💰 Dabbu + 🍫 Treat</h2>
-<input id="goalInput" placeholder="Ee roju goal..."><br><button onclick="saveGoal()">Goal Set</button><p id="goalShow"></p><button onclick="completeGoal()" style="background:#22C55E">✅ Complete</button>
-<br><input id="dreamInput" placeholder="Nee Dream - Bike? Job?"><br><button onclick="saveDream()">Dream Save</button><p id="dreamShow"></p>
-<br><input id="moneyInput" placeholder="Ee roju entha karchu chesav?"><br><button onclick="saveMoney()">Dabbu Save</button><p id="moneyShow"></p>
-<button onclick="alert('Nuvvu oka Chocolate deserve chesthav KING! 🍫 Velli thinru!')">🍫 Naa Treat</button></div>
-
-<div class="box"><h2>🐶 Pet + 🌟 Star + ❤️ Heart + 🪞 Mirror</h2><div id="pet">🐶</div><p id="petMsg">Naa Pet - Nenu neetho unna KING!</p><button onclick="feedPet()">🍖 Food Petta</button> <button onclick="petTalk()">Pet tho Matladu</button>
-<br><br><button onclick="makeStar()">🌟 Naa Star Create Chey</button><p id="starMsg"></p>
+<div class="box"><h2>✨ Quote + Fortune</h2><p id="quote">Loading...</p>
+<button type="button" onclick="newQuote()">Quote</button>
+<button type="button" onclick="fortune()">🔮 Fortune</button><p id="fortuneMsg"></p></div>
+<div class="box"><h2>🤖 AI Best Friend</h2><div id="chatbox"><p><b>AI:</b> Hi KING! Nenu nee friend ni!</p></div><input id="userInput" placeholder="Matladu KING..."><br><button type="button" onclick="sendMsg()">Pampu</button> <button type="button" onclick="voiceMsg()">🎤 Voice</button></div>
+<div class="box"><h2>📓 Diary + Lock</h2><textarea id="diary" placeholder="Secret rayi..."></textarea><br><button type="button" onclick="saveDiary()">Save</button> <button type="button" onclick="lockDiary()">Lock Chey</button><p id="saved"></p></div>
+<div class="box"><h2>🫁 Breathing + 🧊 Cool</h2><div id="breathCircle">Breathe</div><button type="button" onclick="startBreath()">Start Breathing</button><p id="breathMsg">Nose tho pilchu, nora tho vadulu</p><button type="button" onclick="coolDown()">🧊 Cool Avvu</button></div>
+<div class="box"><h2>🔥 Badha Burn + 🥊 Punch</h2><textarea id="badhaText" placeholder="Badha rayi..."></textarea><br><button type="button" onclick="burnBadha()" style="background:#DC2626">🔥 BURN</button><p id="burnMsg"></p><div id="punch" onclick="punchBag()">🥊</div><p id="punchMsg">Punch Bag ni 10 sarlu kottu!</p><p>Count: <span id="punchCount">0</span></p></div>
+<div class="box"><h2>🎯 Goal + 🚀 Dream + 💰 Dabbu</h2>
+<input id="goalInput" placeholder="Ee roju goal..."><br><button type="button" onclick="saveGoal()">Goal Set</button><p id="goalShow"></p><button type="button" onclick="completeGoal()" style="background:#22C55E">✅ Complete</button>
+<br><input id="dreamInput" placeholder="Nee Dream - Bike? Job?"><br><button type="button" onclick="saveDream()">Dream Save</button><p id="dreamShow"></p>
+<br><input id="moneyInput" placeholder="Ee roju entha karchu?"><br><button type="button" onclick="saveMoney()">Dabbu Save</button><p id="moneyShow"></p>
+<button type="button" onclick="treat()">🍫 Naa Treat</button></div> 
+  <div class="box"><h2>🐶 Pet + 🌟 Star + ❤️ Heart + 🪞 Mirror</h2><div id="pet">🐶</div><p id="petMsg">Nenu neetho unna KING!</p><button type="button" onclick="feedPet()">🍖 Food Petta</button> <button type="button" onclick="petTalk()">Pet tho Matladu</button>
+<br><br><button type="button" onclick="makeStar()">🌟 Naa Star</button><p id="starMsg"></p>
 <div id="heartBig" onclick="heartClick()">❤️</div><p id="heartMsg">Heart ni nokku KING!</p>
-<button onclick="alert('KING! Nuvvu eeroju chala HANDSOME ga unnav! Nee smile super! 😎')">🪞 Nenu Andamga Unna?</button></div>
-
-<div class="box"><h2>🕹️ Snake Game</h2><canvas id="canvasGame" width="300" height="200"></canvas><br><button onclick="startSnake()">Game Start</button><p>Score: <span id="snakeScore">0</span> - Arrow keys / Buttons tho aadu!</p><button onclick="changeDir('up')">⬆️</button><br><button onclick="changeDir('left')">⬅️</button> <button onclick="changeDir('down')">⬇️</button> <button onclick="changeDir('right')">➡️</button></div>
-<div class="box"><h2>🧩 Puzzle + 🎭 Natakam</h2><p id="puzzleQ">2 + 2 = ?</p><button onclick="puzzleAns(4)">4</button> <button onclick="puzzleAns(5)">5</button> <button onclick="puzzleAns(3)">3</button><p id="puzzleMsg"></p><button onclick="natakam()">🎭 Natakam Start</button><p id="natakamMsg"></p></div>
-
-<div class="box"><h2>🎵 Song + 🎬 Movie + 🌧️ Rain Sound + 🗺️ Place + 🧸 Bomma</h2><p id="songMsg">Mood select cheste song vasthundi!</p><button onclick="playSong()">Song Chudu</button><br><br><button onclick="movieSuggest()">🎬 Movie Suggest Chey</button><p id="movieMsg"></p><button onclick="rainSound()">🌧️ Rain Sound</button> <button onclick="alert('Ocean Sound... 🌊 Relax...')">🌊 Ocean</button><p id="rainMsg"></p><input id="placeInput" placeholder="Nee Favourite Place - Vizag Beach?"><br><button onclick="savePlace()">Place Save</button><p id="placeShow"></p><button onclick="alert('Chinnappati Cartoon gurthu vachinda KING? Tom & Jerry! 😂 Nuvvu appudu chala happy ga undevu!')">🧸 Naa Bomma</button></div>
-
-<div class="box"><h2>📖 Story + 💌 Letter + 🧠 Memory + 🌙 Kala + 🍕 Food</h2><button onclick="tellStory()">📖 Story Cheppu</button><p id="storyMsg"></p><button onclick="writeLetter()">💌 Future Naku Letter</button><p id="letterMsg"></p><input id="memoryInput" placeholder="Best Moment rayi..."><br><button onclick="saveMemory()">Memory Save</button><p id="memoryShow"></p><input id="kalaInput" placeholder="Night kala em vachindi?"><br><button onclick="kalaExplain()">Kala Ardham</button><p id="kalaMsg"></p><button onclick="foodTalk()">🍕 Eeroju Em Tinnav?</button><p id="foodMsg"></p></div>
-
-<div class="box"><h2>🎂 Birthday + 📅 Calendar + 📚 Exam + 📱 Phone Break + 💬 Amma Message</h2>
-<input type="date" id="bdayInput"><br><button onclick="saveBday()">Birthday Save</button><p id="bdayMsg"></p>
-<p>📅 Roju Mood: <button onclick="markDay('😊')">😊</button> <button onclick="markDay('😢')">😢</button></p><p id="calendarMsg"></p>
-<button onclick="examTips()">📚 Exam Bhayam Povali Ante</button><p id="examMsg"></p>
-<button onclick="alert('KING! Phone konchem pakkana petti, 10 mins break teesuko! Kallu relax avuthayi! 📱')">📱 Phone Break</button>
-<br><br><button onclick="ammaMsg()">💬 Amma ki Message</button><p id="ammaMsgText"></p></div>
-
+<button type="button" onclick="mirror()">🪞 Nenu Andamga Unna?</button></div>
+<div class="box"><h2>🕹️ Snake Game</h2><canvas id="canvasGame" width="300" height="200"></canvas><br><button type="button" onclick="startSnake()">Game Start</button><p>Score: <span id="snakeScore">0</span></p><button type="button" onclick="changeDir('up')">⬆️</button><br><button type="button" onclick="changeDir('left')">⬅️</button> <button type="button" onclick="changeDir('down')">⬇️</button> <button type="button" onclick="changeDir('right')">➡️</button></div>
+<div class="box"><h2>🧩 Puzzle + 🎭 Natakam</h2><p>2 + 2 = ?</p><button type="button" onclick="puzzleAns(4)">4</button> <button type="button" onclick="puzzleAns(5)">5</button> <button type="button" onclick="puzzleAns(3)">3</button><p id="puzzleMsg"></p><button type="button" onclick="natakam()">🎭 Natakam Start</button><p id="natakamMsg"></p></div>
+<div class="box"><h2>🎵 Song + 🎬 Movie + 🌧️ Rain + 🗺️ Place + 🧸 Bomma</h2><p id="songMsg">Mood select cheste song vasthundi!</p><button type="button" onclick="playSong()">Song Chudu</button><br><br><button type="button" onclick="movieSuggest()">🎬 Movie Suggest</button><p id="movieMsg"></p><button type="button" onclick="rainSound()">🌧️ Rain Sound</button> <button type="button" onclick="oceanSound()">🌊 Ocean</button><p id="rainMsg"></p><input id="placeInput" placeholder="Nee Favourite Place - Vizag Beach?"><br><button type="button" onclick="savePlace()">Place Save</button><p id="placeShow"></p><button type="button" onclick="bomma()">🧸 Naa Bomma</button></div>
+<div class="box"><h2>📖 Story + 💌 Letter + 🧠 Memory + 🌙 Kala + 🍕 Food</h2><button type="button" onclick="tellStory()">📖 Story Cheppu</button><p id="storyMsg"></p><button type="button" onclick="writeLetter()">💌 Future Naku Letter</button><p id="letterMsg"></p><input id="memoryInput" placeholder="Best Moment rayi..."><br><button type="button" onclick="saveMemory()">Memory Save</button><p id="memoryShow"></p><input id="kalaInput" placeholder="Night kala em vachindi?"><br><button type="button" onclick="kalaExplain()">Kala Ardham</button><p id="kalaMsg"></p><button type="button" onclick="foodTalk()">🍕 Eeroju Em Tinnav?</button><p id="foodMsg"></p></div>
+<div class="box"><h2>🎂 Birthday + 📅 Calendar + 📚 Exam + 📱 Phone Break + 💬 Amma</h2>
+<input type="date" id="bdayInput"><br><button type="button" onclick="saveBday()">Birthday Save</button><p id="bdayMsg"></p>
+<p>📅 Roju Mood: <button type="button" onclick="markDay('😊')">😊</button> <button type="button" onclick="markDay('😢')">😢</button></p><p id="calendarMsg"></p>
+<button type="button" onclick="examTips()">📚 Exam Tips</button><p id="examMsg"></p>
+<button type="button" onclick="phoneBreak()">📱 Phone Break</button>
+<br><br><button type="button" onclick="ammaMsg()">💬 Amma ki Message</button><p id="ammaMsgText"></p></div>
 <div class="box"><h2>🎨 Drawing + ⏰ Timer + 📞 Fake Call + ⏰ Alarm + 🛡️ Shield</h2>
-<canvas id="drawCanvas" width="300" height="150"></canvas><br><button onclick="clearDraw()">Clear Drawing</button>
-<br><br><p>Study Timer: <span id="timerShow">25:00</span></p><button onclick="startTimer()">⏰ 25 Mins Start</button>
-<br><br><button onclick="fakeCall()">📞 Fake Call - Amma Calling...</button><p id="fakeMsg"></p>
-<button onclick="alert('Alarm Set Aindi KING! Repu 6 AM ki lesthav! ⏰')">⏰ Alarm Pettuko</button>
-<br><br><button onclick="shield()">🛡️ Nannu Badha Pedithe Em Cheppali?</button><p id="shieldMsg"></p></div>
-
-<div class="box"><h2>📸 Photo + 💪 Health + 🆘 Help</h2><input type="file" accept="image/*" onchange="showPhoto(event)"><br><img id="photoShow" style="max-width:100%;border-radius:12px;margin-top:10px"><p id="photoMsg"></p><button onclick="healthTip()">💪 Health Tip</button><p id="healthMsg"></p></div>
+<canvas id="drawCanvas" width="300" height="150"></canvas><br><button type="button" onclick="clearDraw()">Clear Drawing</button>
+<br><br><p>Study Timer: <span id="timerShow">25:00</span></p><button type="button" onclick="startTimer()">⏰ 25 Mins Start</button>
+<br><br><button type="button" onclick="fakeCall()">📞 Fake Call</button><p id="fakeMsg"></p>
+<button type="button" onclick="alarm()">⏰ Alarm Pettuko</button>
+<br><br><button type="button" onclick="shield()">🛡️ Badha Pedithe Em Cheppali?</button><p id="shieldMsg"></p></div>
+<div class="box"><h2>📸 Photo + 💪 Health</h2><input type="file" accept="image/*" onchange="showPhoto(event)"><br><img id="photoShow" style="max-width:100%;border-radius:12px;margin-top:10px"><p id="photoMsg"></p><button type="button" onclick="healthTip()">💪 Health Tip</button><p id="healthMsg"></p></div>
 <div class="box"><h2>🆘 Help Kavali Ante</h2><p>Tele MANAS: <a href="tel:14416">14416</a><br>Vandrevala: <a href="tel:18602662345">1860-2662-345</a></p></div>
-
-<p class="footer">Made with ❤️ by Muthyala Rakesh<br><small>V4 MEGA 50 - For Everyone Who Feels Alone</small></p>
-
+<p class="footer">Made with ❤️ by Muthyala Rakesh<br><small>V7 - For Everyone Who Feels Alone</small></p>
 <script>
+function getEl(id){return document.getElementById(id);}
 var quotes=["Ee badha permanent kadu, nuvvu strong.","Nuvvu intha varaku vachav ante nuvve great.","Rest kuda progress ye.","Nuvvu KING vi, odipovu!","Nee kosam evaro okaru untaru."];
-function newQuote(){document.getElementById("quote").innerText=quotes[Math.floor(Math.random()*quotes.length)];} newQuote();
-function fortune(){var f=["Nee future lo manchi jaruguthundi! ✨","Nuvvu gelusthav KING! 🏆","Repu neeku oka manchi vishayam cheptharu! 😊","Nee dream nijam avuthundi! 🚀"];document.getElementById("fortuneMsg").innerText=f[Math.floor(Math.random()*f.length)];}
-var h=new Date().getHours();
-if(h<12)document.getElementById("greet").innerText="Good Morning KING! ☀️ Ee roju nee roju!";
-else if(h<17)document.getElementById("greet").innerText="Good Afternoon KING!";
-else if(h<21)document.getElementById("greet").innerText="Good Evening KING!";
-else document.getElementById("greet").innerText="Good Night KING! 🌙 Ippudu paduko!";
-var streak=parseInt(localStorage.getItem("streak")||"0")+1;localStorage.setItem("streak",streak);
-document.getElementById("streakMsg").innerText="🔥 "+streak+" sarlu vachav! Trophy: "+(streak>=7?"🏆 Legend!":streak>=3?"🥈 Strong!":"🥉 Starting!");
+function newQuote(){getEl("quote").innerText=quotes[Math.floor(Math.random()*quotes.length)];} newQuote();
+function fortune(){var f=["Nee future lo manchi jaruguthundi!","Nuvvu gelusthav KING!","Repu neeku oka manchi vishayam cheptharu!","Nee dream nijam avuthundi!"];getEl("fortuneMsg").innerText=f[Math.floor(Math.random()*f.length)];}
+var hh=new Date().getHours();
+if(hh<12){getEl("greet").innerText="Good Morning KING! Ee roju nee roju!";}else if(hh<17){getEl("greet").innerText="Good Afternoon KING!";}else if(hh<21){getEl("greet").innerText="Good Evening KING!";}else{getEl("greet").innerText="Good Night KING! Ippudu paduko!";}
+var streakNum=1;try{streakNum=parseInt(localStorage.getItem("streak")||"0")+1;localStorage.setItem("streak",streakNum);}catch(e){}
+getEl("streakMsg").innerText="🔥 "+streakNum+" sarlu vachav! Trophy: "+(streakNum>=7?"🏆 Legend!":streakNum>=3?"🥈 Strong!":"🥉 Starting!");
 function toggleDark(){document.body.classList.toggle("dark");document.body.classList.remove("king");}
-function toggleKing(){document.body.classList.toggle("king");if(document.body.classList.contains("king"))alert("👑 KING MODE ON!");}
-function setColor(c){document.body.className="";if(c)document.body.classList.add(c);}
-function openGift(){var g=["Nuvvu handsome KING! 😎","Ee roju manchi jaruguthundi! ✨","Nee smile super! 😊","Nuvvu gelusthav! 🏆","Chocolate thinru! 🍫"];document.getElementById("giftMsg").innerText=g[Math.floor(Math.random()*g.length)];}
-function setMood(m){
-document.getElementById("moodMsg").innerText="Nee mood: "+m;
-document.getElementById("detectiveMsg").innerText="🕵️ Detective: Nuvvu ippudu "+m+" ga unnav kada KING? Nenu kanukkunna!";
-if(m=="sad")document.getElementById("songMsg").innerText="Song: Arijit Singh Sad Song 🎵";
-else if(m=="happy")document.getElementById("songMsg").innerText="Song: Butta Bomma - Dance chey! 💃";
-else if(m=="angry")document.getElementById("songMsg").innerText="Song: Calm Song + Breathing 🫁";
-else document.getElementById("songMsg").innerText="Song: Lo-fi - Paduko 😴";
-}
-function getReply(t){
-if(t.includes("joke"))return "Teacher: Homework? Student: Google kuda cheyaledu! 😂";
-if(t.includes("badha"))return "Cheppu KING, nenu vinutunna... Burn box lo kuda rayochu!";
-if(t.includes("hi")||t.includes("hello"))return "Hi KING! Ela unnav?";
-if(t.includes("king"))return "Nuvve KING vi! 🔥";
-return "Interesting KING! Inka cheppu!";
-}
-function sendMsg(){var inp=document.getElementById("userInput");if(!inp.value)return;var c=document.getElementById("chatbox");c.innerHTML+="<p><b>Nuvvu:</b> "+inp.value+"</p>";c.innerHTML+="<p><b>AI:</b> "+getReply(inp.value.toLowerCase())+"</p>";c.scrollTop=c.scrollHeight;inp.value="";}
-function voiceMsg(){alert("🎤 Mic button nokkav! Nuvvu matladithe, nenu vintanu KING! (Phone lo mic permission ivvu)");}
-function saveDiary(){localStorage.setItem("diary",document.getElementById("diary").value);document.getElementById("saved").innerText="Save aindi KING!";}
-function lockDiary(){document.getElementById("diary").value="";document.getElementById("saved").innerText="🔒 Lock aindi! Password tho ne open avuthundi!";}
-var oldD=localStorage.getItem("diary");if(oldD)document.getElementById("diary").value=oldD;
-function startBreath(){var c=document.getElementById("breathCircle");document.getElementById("breathMsg").innerText="Inhale...";c.style.transform="scale(1.4)";setTimeout(function(){document.getElementById("breathMsg").innerText="Exhale... Relax...";c.style.transform="scale(1)";},4000);setTimeout(function(){document.getElementById("breathMsg").innerText="Super KING! Tension poyindhi!";},8000);}
-var punchN=0;function punchBag(){punchN++;document.getElementById("punchCount").innerText=punchN;if(punchN>=10){document.getElementById("punchMsg").innerText="GETT! Kopam motham poyindhi KING! 🥊";punchN=0;}}
-function burnBadha(){var t=document.getElementById("badhaText").value;if(!t)return alert("Badha rayi KING!");document.getElementById("burnMsg").innerText="🔥 Kalustundi... Kalipoyindhi! Manasu light!";document.getElementById("badhaText").value="";}
-function saveGoal(){var g=document.getElementById("goalInput").value;localStorage.setItem("goal",g);document.getElementById("goalShow").innerText="Goal: "+g;}
-function completeGoal(){document.getElementById("goalShow").innerText="🏆 Goal Complete KING!";localStorage.removeItem("goal");}
-var sg=localStorage.getItem("goal");if(sg)document.getElementById("goalShow").innerText="Goal: "+sg;
-function saveDream(){var d=document.getElementById("dreamInput").value;localStorage.setItem("dream",d);document.getElementById("dreamShow").innerText="Nee Dream: "+d+" - Nijam avuthundi!";}
-var sd=localStorage.getItem("dream");if(sd)document.getElementById("dreamShow").innerText="Nee Dream: "+sd;
-function saveMoney(){var m=document.getElementById("moneyInput").value;document.getElementById("moneyShow").innerText="Ee roju karchu: Rs "+m+" - Save cheyadaniki try chey KING! 💰";}
-function feedPet(){document.getElementById("petMsg").innerText="Yummy! Thanks KING! 🍖 Nenu happy!";}
-function petTalk(){document.getElementById("petMsg").innerText="Don't worry KING, nenu unna! 🐶";}
-function makeStar(){document.getElementById("starMsg").innerText="🌟 Nee Peru tho oka Star create aindi! 'Muthyala Rakesh Star' - Sky lo veluguthundi!";}
-function heartClick(){document.getElementById("heartMsg").innerText="Nee heart lo badha unna, nenu chusukunta KING! Nuvvu navvu chalu! ❤️";}
+function toggleKing(){document.body.classList.toggle("king");document.body.classList.remove("dark");if(document.body.classList.contains("king")){alert("👑 KING MODE ON!");}}
+function setColor(c){document.body.classList.remove("blue","green","pink");if(c){document.body.classList.add(c);}}
+function openGift(){var g=["Nuvvu handsome KING!","Ee roju manchi jaruguthundi!","Nee smile super!","Nuvvu gelusthav!","Chocolate thinru!"];getEl("giftMsg").innerText=g[Math.floor(Math.random()*g.length)];}
+function setMood(m){getEl("moodMsg").innerText="Nee mood: "+m;getEl("detectiveMsg").innerText="🕵️ Detective: Nuvvu ippudu "+m+" ga unnav kada KING?";if(m==="sad"){getEl("songMsg").innerText="Song: Arijit Singh Sad Song";}else if(m==="happy"){getEl("songMsg").innerText="Song: Butta Bomma - Dance chey!";}else if(m==="angry"){getEl("songMsg").innerText="Song: Calm Song + Breathing";}else{getEl("songMsg").innerText="Song: Lo-fi - Paduko";}}
+function getReply(t){if(t.indexOf("joke")>-1){return "Teacher: Homework? Student: Google kuda cheyaledu! 😂";}if(t.indexOf("badha")>-1){return "Cheppu KING, nenu vinutunna...";}if(t.indexOf("hi")>-1||t.indexOf("hello")>-1){return "Hi KING! Ela unnav?";}if(t.indexOf("king")>-1){return "Nuvve KING vi! 🔥";}return "Interesting KING! Inka cheppu!";}
+function sendMsg(){var inp=getEl("userInput");if(!inp.value){return;}var c=getEl("chatbox");c.innerHTML+="<p><b>Nuvvu:</b> "+inp.value+"</p>";c.innerHTML+="<p><b>AI:</b> "+getReply(inp.value.toLowerCase())+"</p>";c.scrollTop=c.scrollHeight;inp.value="";}
+function voiceMsg(){alert("🎤 Mic button nokkav KING!");}
+function saveDiary(){try{localStorage.setItem("diary",getEl("diary").value);}catch(e){}getEl("saved").innerText="Save aindi KING!";}
+function lockDiary(){getEl("diary").value="";getEl("saved").innerText="🔒 Lock aindi!";}
+try{var oldD=localStorage.getItem("diary");if(oldD){getEl("diary").value=oldD;}}catch(e){}
+function startBreath(){var c=getEl("breathCircle");getEl("breathMsg").innerText="Inhale...";c.style.transform="scale(1.4)";setTimeout(function(){getEl("breathMsg").innerText="Exhale... Relax...";c.style.transform="scale(1)";},4000);setTimeout(function(){getEl("breathMsg").innerText="Super KING! Tension poyindhi!";},8000);}
+function coolDown(){alert("Oka glass cold water thagu KING! 10 sec kallu moosuko!");}
+var punchN=0;function punchBag(){punchN++;getEl("punchCount").innerText=punchN;if(punchN>=10){getEl("punchMsg").innerText="GETT! Kopam motham poyindhi KING!";punchN=0;}}
+function burnBadha(){var t=getEl("badhaText").value;if(!t){alert("Badha rayi KING!");return;}getEl("burnMsg").innerText="🔥 Kalustundi... Kalipoyindhi! Manasu light!";getEl("badhaText").value="";}
+function saveGoal(){var g=getEl("goalInput").value;try{localStorage.setItem("goal",g);}catch(e){}getEl("goalShow").innerText="Goal: "+g;}
+function completeGoal(){getEl("goalShow").innerText="🏆 Goal Complete KING!";try{localStorage.removeItem("goal");}catch(e){}}
+try{var sg=localStorage.getItem("goal");if(sg){getEl("goalShow").innerText="Goal: "+sg;}}catch(e){}
+function saveDream(){var d=getEl("dreamInput").value;try{localStorage.setItem("dream",d);}catch(e){}getEl("dreamShow").innerText="Nee Dream: "+d+" - Nijam avuthundi!";}
+try{var sd=localStorage.getItem("dream");if(sd){getEl("dreamShow").innerText="Nee Dream: "+sd;}}catch(e){}
+function saveMoney(){var m=getEl("moneyInput").value;getEl("moneyShow").innerText="Ee roju karchu: Rs "+m+" - Save chey KING!";}
+function treat(){alert("Nuvvu oka Chocolate deserve chesthav KING!");}
+function feedPet(){getEl("petMsg").innerText="Yummy! Thanks KING!";}
+function petTalk(){getEl("petMsg").innerText="Don't worry KING, nenu unna!";}
+function makeStar(){getEl("starMsg").innerText="🌟 Nee Peru tho Star create aindi! Muthyala Rakesh Star - Sky lo veluguthundi!";}
+function heartClick(){getEl("heartMsg").innerText="Nee heart lo badha unna, nenu chusukunta KING! Nuvvu navvu chalu!";}
+function mirror(){alert("KING! Nuvvu eeroju chala HANDSOME ga unnav!");}
 function playSong(){alert("YouTube lo nee mood song search chey KING!");}
-function movieSuggest(){var m=["RRR - Mass! 🔥","Jersey - Emotional ❤️","Hi Nanna - Sweet 🥰","Pushpa - Mass Dialogues! 💪"];document.getElementById("movieMsg").innerText=m[Math.floor(Math.random()*m.length)];}
-function rainSound(){document.getElementById("rainMsg").innerText="🌧️ Rain Sound... Nidra vasthundi... (YouTube lo Rain Sound search chey)";}
-function savePlace(){var p=document.getElementById("placeInput").value;document.getElementById("placeShow").innerText="Nee Favourite Place: "+p+" - Akkada ki vellinappudu happy ga untundi kada!";}
-function tellStory(){document.getElementById("storyMsg").innerText="Oka KING undevadu... Tanu chala kastalu chusadu, kani odipoledu! Chivarki tanu gelichadu! Aa KING nuvve! 👑";}
-function writeLetter(){document.getElementById("letterMsg").innerText="💌 Future Naku: Nuvvu gelusthav! Ee badha gurthu kuda undadu! - Past Nenu";}
-function saveMemory(){var m=document.getElementById("memoryInput").value;localStorage.setItem("memory",m);document.getElementById("memoryShow").innerText="Best Memory: "+m;}
-var sm=localStorage.getItem("memory");if(sm)document.getElementById("memoryShow").innerText="Best Memory: "+sm;
-function kalaExplain(){document.getElementById("kalaMsg").innerText="Nee kala ante, nuvvu dani gurinchi ekkuva alochistunnav ani ardham KING! 🌙";}
-function foodTalk(){document.getElementById("foodMsg").innerText="Biryani ante naku kuda istam KING! 🍕 Eeroju em tinnav cheppu!";}
-function saveBday(){var d=document.getElementById("bdayInput").value;if(!d)return;var today=new Date();var b=new Date(d);var diff=Math.ceil((b-today)/86400000);if(diff<0)diff+=365;document.getElementById("bdayMsg").innerText="🎂 Nee Birthday ki inka "+diff+" rojulu KING! Ready avvu!";}
-function markDay(m){document.getElementById("calendarMsg").innerText="Ee roju mood: "+m+" - Save aindi! Ee month lo nuvvu chala days happy ga unnav!";}
-function examTips(){document.getElementById("examMsg").innerText="📚 1. 25 mins chaduvu, 5 mins break 2. Tension vaddu 3. Nuvvu prepare ayyav! Nuvvu gelusthav!";}
-function ammaMsg(){document.getElementById("ammaMsgText").innerText="Amma, I Love You! Nuvvu naa kosam chala chesthav! ❤️ - Copy chesi pampu!";}
-function shield(){document.getElementById("shieldMsg").innerText="🛡️ Cheppu: 'Nannu badha pettaku, nenu silent ga undanu!' - Strong ga cheppu KING!";}
-function fakeCall(){document.getElementById("fakeMsg").innerText="📞 Amma Calling... 📞 Answer chey KING! Friends nundi tappinchuko! 😂";}
-function startTimer(){var s=25*60;var iv=setInterval(function(){var mm=Math.floor(s/60);var ss=s%60;document.getElementById("timerShow").innerText=mm+":"+(ss<10?"0"+ss:ss);s--;if(s<0){clearInterval(iv);alert("Break Time KING! 5 mins rest!");}},1000);}
-function puzzleAns(a){document.getElementById("puzzleMsg").innerText=a==4?"Genius KING! Correct! 🧩":"Try again KING!";}
-function natakam(){document.getElementById("natakamMsg").innerText="Nuvvu: Nenu KING ni! Villain: Nuvvu odipothav! Nuvvu: Nenu eppudu odiponu! 🔥";}
-function healthTip(){var ht=["Roju 8 glasses water thagu! 💧","Roju 30 mins naduvu! 🚶","Phone thakkuva chudu! 📱"];document.getElementById("healthMsg").innerText=ht[Math.floor(Math.random()*ht.length)];}
-function showPhoto(e){var r=new FileReader();r.onload=function(){document.getElementById("photoShow").src=r.result;document.getElementById("photoMsg").innerText="Nee photo super KING! 😎";};r.readAsDataURL(e.target.files[0]);}
-var dc=document.getElementById("drawCanvas");var dctx=dc.getContext("2d");var drawing=false;
-dc.addEventListener("mousedown",function(e){drawing=true;dctx.beginPath();});dc.addEventListener("mousemove",function(e){if(!drawing)return;var rect=dc.getBoundingClientRect();dctx.lineTo(e.clientX-rect.left,e.clientY-rect.top);dctx.stroke();});dc.addEventListener("mouseup",function(){drawing=false;});
+function movieSuggest(){var m=["RRR - Mass!","Jersey - Emotional","Hi Nanna - Sweet","Pushpa - Mass Dialogues!"];getEl("movieMsg").innerText=m[Math.floor(Math.random()*m.length)];}
+function rainSound(){getEl("rainMsg").innerText="🌧️ Rain Sound... Nidra vasthundi...";}
+function oceanSound(){getEl("rainMsg").innerText="🌊 Ocean Sound... Relax...";}
+function savePlace(){var p=getEl("placeInput").value;getEl("placeShow").innerText="Nee Favourite Place: "+p;}
+function bomma(){alert("Chinnappati Cartoon gurthu vachinda KING? Tom & Jerry!");}
+function tellStory(){getEl("storyMsg").innerText="Oka KING undevadu... Tanu kastalu chusadu, kani odipoledu! Chivarki gelichadu! Aa KING nuvve!";}
+function writeLetter(){getEl("letterMsg").innerText="💌 Future Naku: Nuvvu gelusthav! Ee badha gurthu kuda undadu! - Past Nenu";}
+function saveMemory(){var m=getEl("memoryInput").value;try{localStorage.setItem("memory",m);}catch(e){}getEl("memoryShow").innerText="Best Memory: "+m;}
+try{var sm=localStorage.getItem("memory");if(sm){getEl("memoryShow").innerText="Best Memory: "+sm;}}catch(e){}
+function kalaExplain(){getEl("kalaMsg").innerText="Nee kala ante, nuvvu dani gurinchi ekkuva alochistunnav KING!";}
+function foodTalk(){getEl("foodMsg").innerText="Biryani ante naku kuda istam KING!";}
+function saveBday(){var d=getEl("bdayInput").value;if(!d){return;}var today=new Date();var b=new Date(d);var diff=Math.ceil((b-today)/86400000);if(diff<0){diff+=365;}getEl("bdayMsg").innerText="🎂 Nee Birthday ki inka "+diff+" rojulu KING!";}
+function markDay(m){getEl("calendarMsg").innerText="Ee roju mood: "+m+" - Save aindi!";}
+function examTips(){getEl("examMsg").innerText="📚 1. 25 mins chaduvu, 5 mins break 2. Tension vaddu 3. Nuvvu gelusthav!";}
+function phoneBreak(){alert("KING! Phone konchem pakkana petti, 10 mins break teesuko!");}
+function ammaMsg(){getEl("ammaMsgText").innerText="Amma, I Love You! Nuvvu naa kosam chala chesthav!";}
+function shield(){getEl("shieldMsg").innerText="🛡️ Cheppu: Nannu badha pettaku! - Strong ga cheppu KING!";}
+function fakeCall(){getEl("fakeMsg").innerText="📞 Amma Calling...";}
+function alarm(){alert("Alarm Set Aindi KING! Repu 6 AM ki lesthav!");}
+function startTimer(){var s=25*60;var iv=setInterval(function(){var mm=Math.floor(s/60);var ss=s%60;getEl("timerShow").innerText=mm+":"+(ss<10?"0"+ss:ss);s--;if(s<0){clearInterval(iv);alert("Break Time KING! 5 mins rest!");}},1000);}
+function puzzleAns(a){if(a===4){getEl("puzzleMsg").innerText="Genius KING! Correct!";}else{getEl("puzzleMsg").innerText="Try again KING!";}}
+function natakam(){getEl("natakamMsg").innerText="Nuvvu: Nenu KING ni! Villain: Odipothav! Nuvvu: Nenu eppudu odiponu!";}
+function healthTip(){var ht=["Roju 8 glasses water thagu!","Roju 30 mins naduvu!","Phone thakkuva chudu!"];getEl("healthMsg").innerText=ht[Math.floor(Math.random()*ht.length)];}
+function showPhoto(e){var f=e.target.files[0];if(!f){return;}var r=new FileReader();r.onload=function(){getEl("photoShow").src=r.result;getEl("photoMsg").innerText="Nee photo super KING!";};r.readAsDataURL(f);}
+var dc=getEl("drawCanvas");var dctx=dc.getContext("2d");var drawing=false;
+function getDrawPos(e){var rect=dc.getBoundingClientRect();var x=0;var y=0;if(e.touches&&e.touches.length>0){x=e.touches[0].clientX-rect.left;y=e.touches[0].clientY-rect.top;}else{x=e.clientX-rect.left;y=e.clientY-rect.top;}return {x:x,y:y};}
+dc.addEventListener("mousedown",function(e){drawing=true;dctx.beginPath();var p=getDrawPos(e);dctx.moveTo(p.x,p.y);});
+dc.addEventListener("mousemove",function(e){if(!drawing){return;}var p=getDrawPos(e);dctx.lineTo(p.x,p.y);dctx.stroke();});
+dc.addEventListener("mouseup",function(){drawing=false;});
+dc.addEventListener("touchstart",function(e){drawing=true;dctx.beginPath();var p=getDrawPos(e);dctx.moveTo(p.x,p.y);});
+dc.addEventListener("touchmove",function(e){if(!drawing){return;}e.preventDefault();var p=getDrawPos(e);dctx.lineTo(p.x,p.y);dctx.stroke();},{passive:false});
+dc.addEventListener("touchend",function(){drawing=false;});
 function clearDraw(){dctx.clearRect(0,0,300,150);}
-var snake=[{x:50,y:50}],dir="right",food={x:150,y:100},score=0,gameInt=null;
-function changeDir(d){dir=d;}
-function startSnake(){if(gameInt)clearInterval(gameInt);snake=[{x:50,y:50}];score=0;gameInt=setInterval(drawSnake,150);}
-function drawSnake(){
-var head={x:snake[0].x,y:snake[0].y};
-if(dir=="right")head.x+=10;if(dir=="left")head.x-=10;if(dir=="up")head.y-=10;if(dir=="down")
+var snakeArr=[{x:50,y:50}];var snakeDir="right";var snakeFood={x:150,y:100};var snakeScore=0;var snakeTimer=null;
+function changeDir(d){snakeDir=d;}
+function startSnake(){if(snakeTimer){clearInterval(snakeTimer);}snakeArr=[{x:50,y:50}];snakeDir="right";snakeScore=0;getEl("snakeScore").innerText="0";snakeTimer=setInterval(drawSnake,150);}
+function drawSnake(){var head={x:snakeArr[0].x,y:snakeArr[0].y};if(snakeDir==="right"){head.x+=10;}if(snakeDir==="left"){head.x-=10;}if(snakeDir==="up"){head.y-=10;}if(snakeDir==="down"){head.y+=10;}snakeArr.unshift(head);if(head.x===snakeFood.x&&head.y===snakeFood.y){snakeScore++;getEl("snakeScore").innerText=snakeScore;snakeFood={x:Math.floor(Math.random()*29)*10,y:Math.floor(Math.random()*19)*10};}else{snakeArr.pop();}var cv=getEl("canvasGame");var ctx=cv.getContext("2d");ctx.clearRect(0,0,300,200);ctx.fillStyle="red";ctx.fillRect(snakeFood.x,snakeFood.y,10,10);ctx.fillStyle="green";for(var i=0;i<snakeArr.length;i++){ctx.fillRect(snakeArr[i].x,snakeArr[i].y,10,10);}if(head.x<0||head.x>=300||head.y<0||head.y>=200){clearInterval(snakeTimer);alert("Game Over KING! Score: "+snakeScore);}}
+</script>
+</body>
+</html>
