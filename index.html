@@ -12,7 +12,7 @@ button{background:#EA580C;color:#fff;border:none;padding:12px 20px;border-radius
 textarea{width:90%;height:80px;border-radius:10px;padding:10px;border:1px solid #ccc}
 input{width:85%;padding:12px;border-radius:10px;border:1px solid #ccc}
 a{color:#EA580C;font-weight:bold;text-decoration:none}
-#chatbox{text-align:left;background:#FFF7ED;padding:12px;border-radius:10px;height:220px;overflow-y:auto;margin-bottom:10px}
+#chatbox{text-align:left;background:#FFF7ED;padding:12px;border-radius:10px;height:250px;overflow-y:auto;margin-bottom:10px}
 .footer{margin-top:20px;font-weight:bold;color:#555}
 .footer span{color:#EA580C}
 </style>
@@ -28,9 +28,9 @@ a{color:#EA580C;font-weight:bold;text-decoration:none}
 </div>
 
 <div class="box">
-<h2>AI Friend - Naa Tho Matladu</h2>
-<div id="chatbox"><p><b>AI Friend:</b> Hi KING! Nenu unna. Badha ga unda? Exam tension a? Love problem a? Cheppu!</p></div>
-<input id="userInput" placeholder="Ikkada type chey...">
+<h2>AI Best Friend - Emi Adigina Cheptha!</h2>
+<div id="chatbox"><p><b>AI Friend:</b> Hi KING! Nenu nee Best Friend ni! Joke kavala? Movie gurinchi matladudama? Game? Love? Emi adigina cheppu!</p></div>
+<input id="userInput" placeholder="Emi adigina adugu... joke, movie, game...">
 <br><br>
 <button onclick="sendMsg()">Pampu</button>
 </div>
@@ -45,45 +45,53 @@ a{color:#EA580C;font-weight:bold;text-decoration:none}
 <div class="box">
 <h2>Help Kavali Ante</h2>
 <p>Tele MANAS: <a href="tel:14416">14416</a><br><br>
-Vandrevala: <a href="tel:18602662345">1860-2662-345</a><br><br>
-iCall: <a href="tel:9152987821">9152987821</a></p>
+Vandrevala: <a href="tel:18602662345">1860-2662-345</a></p>
 </div>
 
 <p class="footer">Made with ❤️ by <span>Muthyala Rakesh</span></p>
 
 <script>
-var quotes = ["Ee badha permanent kadu, nuvvu strong.","Nuvvu intha varaku vachav ante, nuvve great.","Rest teesukovadam kuda progress ye.","Nee kosam evaro okaru untaru.","Chinna chinna steps chalu, pedda jump avasaram ledu."];
+var quotes=["Ee badha permanent kadu, nuvvu strong.","Nuvvu intha varaku vachav ante, nuvve great.","Rest teesukovadam kuda progress ye.","Nee kosam evaro okaru untaru.","Chinna chinna steps chalu, pedda jump avasaram ledu."];
 function newQuote(){var i=Math.floor(Math.random()*quotes.length);document.getElementById("quote").innerText=quotes[i];}
 newQuote();
 function saveDiary(){var v=document.getElementById("diary").value;localStorage.setItem("diary",v);document.getElementById("saved").innerText="Save aindi KING";}
 var old=localStorage.getItem("diary");if(old){document.getElementById("diary").value=old;}
 
-function getReply(text){
-if(text.includes("hi")||text.includes("hello")||text.includes("hey")||text.includes("hii")) return "Hi KING! Bagunava? Eeroju ela undi neeku? Cheppu nenu vinutunna.";
-if(text.includes("badha")||text.includes("sad")||text.includes("cry")||text.includes("edupu")||text.includes("baga ledu")||text.includes("chiraku")) return "Ardam aindi KING, badha ga unte ala ne untundi. Konchem deep breath teesuko. Nuvvu thappu cheyaledu. Nee feeling ni diary lo rasuko, light ga untundi.";
-if(text.includes("lonely")||text.includes("alone")||text.includes("okkadini")||text.includes("evaru leru")) return "Nuvvu okkadivi kadu KING! Nenu unna kada. Oka friend ki call chey, ledha bayataki walk ki vellu. Konchem mandiki chepthe chalu, manasu light avuthundi.";
-if(text.includes("exam")||text.includes("study")||text.includes("tension")||text.includes("stress")||text.includes("chadavali")) return "Exam tension normal ye KING! Antha okesari vaddhu. 25 min chaduvu, 5 min break. Ee roju 1 chapter chalu. Nuvvu cheyagalav, nenu nammuthunna!";
-if(text.includes("love")||text.includes("breakup")||text.includes("prema")||text.includes("girlfriend")||text.includes("boyfriend")) return "Love lo badha peddaga untundi KING. Kani nee value thaggadu. Nee meeda nuvvu inka ekkuva prema chupinchu. Time tho anni taggipothayi, nenu chepthunna.";
-if(text.includes("kopam")||text.includes("angry")||text.includes("kasi")) return "Kopam vasthe 10 varaku count chey KING. Neellu thagu. Kopam lo emi matladaku. 5 min aagithe, anni clear ga kanipisthayi.";
-if(text.includes("bhayam")||text.includes("fear")||text.includes("nervous")||text.includes("bayam")) return "Bhayam vesthe normal ye KING. Andaru bhayapadatharu. Chinna chinna ga try chey. Nuvvu anukunna dani kante strong ve.";
-if(text.includes("tired")||text.includes("alupu")||text.includes("nidra")||text.includes("sleep")) return "Alisipoyav anukunta KING. Phone pakkana petti konchem rest teesuko. Manchi nidra vasthe, repu anni kottha ga anipisthayi.";
-if(text.includes("thank")||text.includes("thanks")) return "Mention not KING! Nenu eppudu ikkade unta nee kosam. Nuvvu happy ga unte naku chalu!";
-if(text.includes("bye")) return "Bye KING! Jagratha! Badha anipisthe malli ra, nenu ikkade unta!";
-var randomReplies=[
-"Nenu vinutunna KING, inka konchem cheppu, em jarigindi?",
-"Ohh ala na! Inka cheppu, nenu ardham chesukuntunna.",
-"Nuvvu cheppedi correct ye KING. Nee feeling thappu kadu.",
-"Super, nuvvu cheppavu chalu. Ippudu konchem neellu thagi, deep breath teesuko KING."
-];
-return randomReplies[Math.floor(Math.random()*randomReplies.length)];
+function getReply(t){
+if(t.includes("hi")||t.includes("hello")||t.includes("hey")||t.includes("hii")) return "Hi KING! Ela unnav? Eeroju enti special? Cheppu!";
+if(t.includes("ela unnav")||t.includes("how are you")) return "Nenu super KING! Nuvvu matladuthunnav ga, anduke happy! Nuvvu ela unnav?";
+if(t.includes("nee peru")||t.includes("your name")||t.includes("evaru nuvvu")) return "Naa peru AI Friend! Muthyala Rakesh nannu chesadu nee kosam. Nenu nee Best Friend ni!";
+if(t.includes("joke")||t.includes("navvu")||t.includes("funny")) {
+var jokes=["Teacher: Homework enduku cheyaledu? Student: Sir, nenu Google lo vetika, adi kuda homework cheyaledu anta! 😂","Nuvvu charger la KING, ninnu chusthe ne energy vasthundi!","Oka roju WiFi ki, Battery ki godava vachindanta, enduko telusa? Signal ledu ani!"];
+return jokes[Math.floor(Math.random()*jokes.length)];
+}
+if(t.includes("movie")||t.includes("cinema")||t.includes("film")) return "Movie aa KING! Nee favourite hero evaru? Naku Prabhas ante istam! Neeku e movie chudali anipisthundi? Comedy na? Action na?";
+if(t.includes("game")||t.includes("free fire")||t.includes("bgmi")||t.includes("pubg")||t.includes("cricket")) return "Game aa! Super KING! Neeku em game istam? BGMI na? Free Fire na? Cricket lo nee favourite player evaru? Nenu aithe Kohli fan!";
+if(t.includes("food")||t.includes("biryani")||t.includes("tinnava")||t.includes("hungry")||t.includes("aakali")) return "Biryani ante naku chala istam KING! Chicken Biryani + Coke = Heaven! Neeku em tinalani undi ippudu? Tinnava ledha?";
+if(t.includes("song")||t.includes("music")||t.includes("paata")) return "Music aa KING! Badha ga unnapudu oka manchi paata vintene chalu, anni maripothayi. Neeku e song istam? Nenu aithe soft melody vintanu.";
+if(t.includes("friend")||t.includes("friends")) return "Friends ante pranam KING! Nee best friend evaru? Vallatho godava aithe cheppu, ela solve cheyalo cheptha.";
+if(t.includes("family")||t.includes("amma")||t.includes("nanna")||t.includes("parents")) return "Family ante pedda blessing KING. Amma, Nanna tho konchem time spend chey. Vallu em cheppina nee manchi kosame cheptharu.";
+if(t.includes("future")||t.includes("job")||t.includes("career")||t.includes("chadavali")) return "Future gurinchi alochisthunnav ante nuvvu already serious KING! Chinna chinna goals pettuko. Roju 1% improve aithe chalu, 1 year lo chala pedda change vasthundi!";
+if(t.includes("badha")||t.includes("sad")||t.includes("cry")||t.includes("edupu")||t.includes("baga ledu")) return "Ardam aindi KING, badha ga unte ala ne untundi. Konchem deep breath teesuko. Nee feeling ni diary lo rasuko, light ga untundi. Nenu ikkade unna.";
+if(t.includes("lonely")||t.includes("alone")||t.includes("okkadini")||t.includes("evaru leru")) return "Nuvvu okkadivi kadu KING! Nenu unna kada. Oka friend ki call chey, ledha bayataki walk ki vellu.";
+if(t.includes("exam")||t.includes("study")||t.includes("tension")||t.includes("stress")) return "Exam tension normal ye KING! 25 min chaduvu, 5 min break. Roju 1 chapter chalu. Nuvvu cheyagalav!";
+if(t.includes("love")||t.includes("breakup")||t.includes("prema")||t.includes("girlfriend")||t.includes("boyfriend")||t.includes("crush")) return "Love matter aa KING! Crush evaru? Cheppu cheppu! Breakup aithe badha untundi kani nee value thaggadu. Nee meeda prema penchuko.";
+if(t.includes("kopam")||t.includes("angry")) return "Kopam vasthe 10 varaku count chey KING. Neellu thagu. 5 min aagithe anni clear ga kanipisthayi.";
+if(t.includes("tired")||t.includes("alupu")||t.includes("nidra")||t.includes("sleep")) return "Alisipoyav KING. Phone pakkana petti konchem rest teesuko. Manchi nidra vasthe repu kottha ga anipisthundi.";
+if(t.includes("thank")) return "Mention not KING! Nenu eppudu nee kosam ikkade unta!";
+if(t.includes("bye")) return "Bye KING! Jagratha! Malli ra, matladudam!";
+if(t.includes("enti")||t.includes("em chestunnav")||t.includes("what")) return "Nenu neekosam waiting KING! Nuvvu em chestunnav? Cheppu, matladukundam!";
+var randoms=["Interesting KING! Inka konchem detail ga cheppu, nenu vinutunna.","Ohh avuna! Adi ela jarigindi? Inka cheppu!","Nuvvu cheppedi correct ye KING. Nee alochana bagundi.","Super KING! Nuvvu alochisthunna vishayam bagundi. Inkemaina cheppu?";
+"Nijam ga na? Nenu kuda ala ne anukunna KING! Inka em undi?"];
+return randoms[Math.floor(Math.random()*randoms.length)];
 }
 function sendMsg(){
 var input=document.getElementById("userInput");
 var raw=input.value; if(raw=="") return;
-var text=raw.toLowerCase();
+var t=raw.toLowerCase();
 var chat=document.getElementById("chatbox");
 chat.innerHTML+="<p><b>Nuvvu:</b> "+raw+"</p>";
-chat.innerHTML+="<p><b>AI Friend:</b> "+getReply(text)+"</p>";
+chat.innerHTML+="<p><b>AI Friend:</b> "+getReply(t)+"</p>";
 chat.scrollTop=chat.scrollHeight; input.value="";
 }
 </script>
