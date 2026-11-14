@@ -5,6 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>You Are Not Alone - V4 MEGA 50 by Muthyala Rakesh</title>
 <style>
+*{
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+button{
+  touch-action: manipulation;
+  outline: none !important;
+  -webkit-user-select: none;
+  user-select: none;
+}
+button:focus{
+  outline: none !important;
+  box-shadow: none !important;
+}
+button:active{
+  transform: scale(0.96);
+}
+.moodBtn:focus, .moodBtn:active{
+  outline: none !important;
+  border: 2px solid #FFE4C4 !important;
+}
+input, textarea{
+  user-select: text;
+  -webkit-user-select: text;
+}
 body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#FFEDD5,#FDE68A);text-align:center;padding:12px;margin:0;transition:0.3s}
 body.dark{background:#111827;color:#fff}.dark .box{background:#1F2937;color:#fff}.dark #chatbox{color:#333}
 body.king{background:linear-gradient(135deg,#FFD700,#FFA500)}body.king .box{background:#FFF7CC;border:3px solid #FFD700}
@@ -37,45 +64,36 @@ textarea,input{width:90%;padding:11px;border-radius:12px;border:1px solid #ddd;m
 <button onclick="setColor('')">🟠 Orange</button>
 </div>
 
-<!-- 1 GIFT 2 MOOD 3 STREAK -->
 <div class="box"><h2>🎁 Gift Box</h2><div style="font-size:55px;cursor:pointer" onclick="openGift()">🎁</div><p id="giftMsg">Nokku KING!</p></div>
 <div class="box"><h2>🎭 Mood</h2>
 <button class="moodBtn" onclick="setMood('happy')">😊</button><button class="moodBtn" onclick="setMood('sad')">😢</button><button class="moodBtn" onclick="setMood('angry')">😡</button><button class="moodBtn" onclick="setMood('tired')">😴</button>
 <p id="moodMsg">Select chey</p><p id="streakMsg"></p><p id="detectiveMsg"></p></div>
 <div class="box"><h2>✨ Quote + Fortune</h2><p id="quote">Loading...</p><button onclick="newQuote()">Quote</button> <button onclick="fortune()">🔮 Fortune Chudu</button><p id="fortuneMsg"></p></div>
 
-<!-- AI + DIARY + LOCK -->
 <div class="box"><h2>🤖 AI Best Friend + Voice</h2><div id="chatbox"><p><b>AI:</b> Hi KING! Nenu nee friend ni! 50 features tho vacha!</p></div><input id="userInput" placeholder="Matladu KING..."><br><button onclick="sendMsg()">Pampu</button> <button onclick="voiceMsg()">🎤 Voice</button></div>
 <div class="box"><h2>📓 Diary + Lock 🔒</h2><input type="password" id="diaryPass" placeholder="Password pettu - Ex: 1234"><textarea id="diary" placeholder="Secret rayi..."></textarea><br><button onclick="saveDiary()">Save</button> <button onclick="lockDiary()">Lock Chey</button><p id="saved"></p></div>
 
-<!-- BREATH + BURN + PUNCH -->
 <div class="box"><h2>🫁 Breathing + 🧊 Ice Cool</h2><div id="breathCircle">Breathe</div><button onclick="startBreath()">Start Breathing</button><p id="breathMsg">Nose tho pilchu, nora tho vadulu</p><button onclick="alert('Oka glass cold water thagu KING! 🧊 10 sec kallu moosuko! Cool aipothav!')">🧊 Cool Avvu</button></div>
 <div class="box"><h2>🔥 Badha Burn + 🥊 Kopa Punch</h2><textarea id="badhaText" placeholder="Badha rayi..."></textarea><br><button onclick="burnBadha()" style="background:#DC2626">🔥 BURN</button><p id="burnMsg"></p><div id="punch" onclick="punchBag()">🥊</div><p id="punchMsg">Punch Bag ni 10 sarlu kottu! Kopam pothundi!</p><p>Kopam Count: <span id="punchCount">0</span></p></div>
 
-<!-- GOAL + DREAM + TREAT + DABBU -->
 <div class="box"><h2>🎯 Goal + 🚀 Dream + 💰 Dabbu + 🍫 Treat</h2>
 <input id="goalInput" placeholder="Ee roju goal..."><br><button onclick="saveGoal()">Goal Set</button><p id="goalShow"></p><button onclick="completeGoal()" style="background:#22C55E">✅ Complete</button>
 <br><input id="dreamInput" placeholder="Nee Dream - Bike? Job?"><br><button onclick="saveDream()">Dream Save</button><p id="dreamShow"></p>
 <br><input id="moneyInput" placeholder="Ee roju entha karchu chesav?"><br><button onclick="saveMoney()">Dabbu Save</button><p id="moneyShow"></p>
 <button onclick="alert('Nuvvu oka Chocolate deserve chesthav KING! 🍫 Velli thinru!')">🍫 Naa Treat</button></div>
 
-<!-- PET + STAR + HEART + MIRROR -->
 <div class="box"><h2>🐶 Pet + 🌟 Star + ❤️ Heart + 🪞 Mirror</h2><div id="pet">🐶</div><p id="petMsg">Naa Pet - Nenu neetho unna KING!</p><button onclick="feedPet()">🍖 Food Petta</button> <button onclick="petTalk()">Pet tho Matladu</button>
 <br><br><button onclick="makeStar()">🌟 Naa Star Create Chey</button><p id="starMsg"></p>
 <div id="heartBig" onclick="heartClick()">❤️</div><p id="heartMsg">Heart ni nokku KING!</p>
 <button onclick="alert('KING! Nuvvu eeroju chala HANDSOME ga unnav! Nee smile super! 😎')">🪞 Nenu Andamga Unna?</button></div>
 
-<!-- SNAKE + PUZZLE + NATAKAM -->
 <div class="box"><h2>🕹️ Snake Game</h2><canvas id="canvasGame" width="300" height="200"></canvas><br><button onclick="startSnake()">Game Start</button><p>Score: <span id="snakeScore">0</span> - Arrow keys / Buttons tho aadu!</p><button onclick="changeDir('up')">⬆️</button><br><button onclick="changeDir('left')">⬅️</button> <button onclick="changeDir('down')">⬇️</button> <button onclick="changeDir('right')">➡️</button></div>
 <div class="box"><h2>🧩 Puzzle + 🎭 Natakam</h2><p id="puzzleQ">2 + 2 = ?</p><button onclick="puzzleAns(4)">4</button> <button onclick="puzzleAns(5)">5</button> <button onclick="puzzleAns(3)">3</button><p id="puzzleMsg"></p><button onclick="natakam()">🎭 Natakam Start</button><p id="natakamMsg"></p></div>
 
-<!-- SONG + MOVIE + RAIN + PLACE + BOMMA -->
 <div class="box"><h2>🎵 Song + 🎬 Movie + 🌧️ Rain Sound + 🗺️ Place + 🧸 Bomma</h2><p id="songMsg">Mood select cheste song vasthundi!</p><button onclick="playSong()">Song Chudu</button><br><br><button onclick="movieSuggest()">🎬 Movie Suggest Chey</button><p id="movieMsg"></p><button onclick="rainSound()">🌧️ Rain Sound</button> <button onclick="alert('Ocean Sound... 🌊 Relax...')">🌊 Ocean</button><p id="rainMsg"></p><input id="placeInput" placeholder="Nee Favourite Place - Vizag Beach?"><br><button onclick="savePlace()">Place Save</button><p id="placeShow"></p><button onclick="alert('Chinnappati Cartoon gurthu vachinda KING? Tom & Jerry! 😂 Nuvvu appudu chala happy ga undevu!')">🧸 Naa Bomma</button></div>
 
-<!-- STORY + LETTER + MEMORY + KALA + FOOD -->
 <div class="box"><h2>📖 Story + 💌 Letter + 🧠 Memory + 🌙 Kala + 🍕 Food</h2><button onclick="tellStory()">📖 Story Cheppu</button><p id="storyMsg"></p><button onclick="writeLetter()">💌 Future Naku Letter</button><p id="letterMsg"></p><input id="memoryInput" placeholder="Best Moment rayi..."><br><button onclick="saveMemory()">Memory Save</button><p id="memoryShow"></p><input id="kalaInput" placeholder="Night kala em vachindi?"><br><button onclick="kalaExplain()">Kala Ardham</button><p id="kalaMsg"></p><button onclick="foodTalk()">🍕 Eeroju Em Tinnav?</button><p id="foodMsg"></p></div>
 
-<!-- BIRTHDAY + COUNTDOWN + CALENDAR + EXAM + PHONE + AMMA -->
 <div class="box"><h2>🎂 Birthday + 📅 Calendar + 📚 Exam + 📱 Phone Break + 💬 Amma Message</h2>
 <input type="date" id="bdayInput"><br><button onclick="saveBday()">Birthday Save</button><p id="bdayMsg"></p>
 <p>📅 Roju Mood: <button onclick="markDay('😊')">😊</button> <button onclick="markDay('😢')">😢</button></p><p id="calendarMsg"></p>
@@ -83,7 +101,6 @@ textarea,input{width:90%;padding:11px;border-radius:12px;border:1px solid #ddd;m
 <button onclick="alert('KING! Phone konchem pakkana petti, 10 mins break teesuko! Kallu relax avuthayi! 📱')">📱 Phone Break</button>
 <br><br><button onclick="ammaMsg()">💬 Amma ki Message</button><p id="ammaMsgText"></p></div>
 
-<!-- DRAWING + TIMER + FAKE CALL + ALARM + SHIELD -->
 <div class="box"><h2>🎨 Drawing + ⏰ Timer + 📞 Fake Call + ⏰ Alarm + 🛡️ Shield</h2>
 <canvas id="drawCanvas" width="300" height="150"></canvas><br><button onclick="clearDraw()">Clear Drawing</button>
 <br><br><p>Study Timer: <span id="timerShow">25:00</span></p><button onclick="startTimer()">⏰ 25 Mins Start</button>
@@ -91,7 +108,6 @@ textarea,input{width:90%;padding:11px;border-radius:12px;border:1px solid #ddd;m
 <button onclick="alert('Alarm Set Aindi KING! Repu 6 AM ki lesthav! ⏰')">⏰ Alarm Pettuko</button>
 <br><br><button onclick="shield()">🛡️ Nannu Badha Pedithe Em Cheppali?</button><p id="shieldMsg"></p></div>
 
-<!-- PHOTO + HEALTH + HELP -->
 <div class="box"><h2>📸 Photo + 💪 Health + 🆘 Help</h2><input type="file" accept="image/*" onchange="showPhoto(event)"><br><img id="photoShow" style="max-width:100%;border-radius:12px;margin-top:10px"><p id="photoMsg"></p><button onclick="healthTip()">💪 Health Tip</button><p id="healthMsg"></p></div>
 <div class="box"><h2>🆘 Help Kavali Ante</h2><p>Tele MANAS: <a href="tel:14416">14416</a><br>Vandrevala: <a href="tel:18602662345">1860-2662-345</a></p></div>
 
@@ -166,15 +182,12 @@ function puzzleAns(a){document.getElementById("puzzleMsg").innerText=a==4?"Geniu
 function natakam(){document.getElementById("natakamMsg").innerText="Nuvvu: Nenu KING ni! Villain: Nuvvu odipothav! Nuvvu: Nenu eppudu odiponu! 🔥";}
 function healthTip(){var ht=["Roju 8 glasses water thagu! 💧","Roju 30 mins naduvu! 🚶","Phone thakkuva chudu! 📱"];document.getElementById("healthMsg").innerText=ht[Math.floor(Math.random()*ht.length)];}
 function showPhoto(e){var r=new FileReader();r.onload=function(){document.getElementById("photoShow").src=r.result;document.getElementById("photoMsg").innerText="Nee photo super KING! 😎";};r.readAsDataURL(e.target.files[0]);}
-// Drawing
 var dc=document.getElementById("drawCanvas");var dctx=dc.getContext("2d");var drawing=false;
 dc.addEventListener("mousedown",function(e){drawing=true;dctx.beginPath();});dc.addEventListener("mousemove",function(e){if(!drawing)return;var rect=dc.getBoundingClientRect();dctx.lineTo(e.clientX-rect.left,e.clientY-rect.top);dctx.stroke();});dc.addEventListener("mouseup",function(){drawing=false;});
 function clearDraw(){dctx.clearRect(0,0,300,150);}
-// Snake
 var snake=[{x:50,y:50}],dir="right",food={x:150,y:100},score=0,gameInt=null;
 function changeDir(d){dir=d;}
 function startSnake(){if(gameInt)clearInterval(gameInt);snake=[{x:50,y:50}];score=0;gameInt=setInterval(drawSnake,150);}
 function drawSnake(){
 var head={x:snake[0].x,y:snake[0].y};
-if(dir=="right")head.x+=10;if(dir=="left")head.x-=10;if(dir=="up")head.y-=10;if(dir=="down")head.y+=10;
-snake.unshift(head);if(head.x==food.x&&head.y==food.y){score++;docu
+if(dir=="right")head.x+=10;if(dir=="left")head.x-=10;if(dir=="up")head.y-=10;if(dir=="down")
