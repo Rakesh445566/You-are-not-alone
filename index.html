@@ -10,7 +10,11 @@ h1{color:#EA580C}
 .box{background:#fff;padding:20px;border-radius:15px;margin:15px auto;max-width:500px;box-shadow:0 2px 10px #ddd}
 button{background:#EA580C;color:#fff;border:none;padding:12px 20px;border-radius:10px;font-size:16px;cursor:pointer}
 textarea{width:90%;height:80px;border-radius:10px;padding:10px;border:1px solid #ccc}
+input{width:85%;padding:12px;border-radius:10px;border:1px solid #ccc}
 a{color:#EA580C;font-weight:bold;text-decoration:none}
+#chatbox{text-align:left;background:#FFF7ED;padding:12px;border-radius:10px;height:180px;overflow-y:auto;margin-bottom:10px}
+.footer{margin-top:20px;font-weight:bold;color:#555}
+.footer span{color:#EA580C}
 </style>
 </head>
 <body>
@@ -21,6 +25,14 @@ a{color:#EA580C;font-weight:bold;text-decoration:none}
 <h2>Roju Quote</h2>
 <p id="quote">Loading...</p>
 <button onclick="newQuote()">Kottha Quote</button>
+</div>
+
+<div class="box">
+<h2>AI Friend - Naa Tho Matladu</h2>
+<div id="chatbox"><p><b>AI Friend:</b> Hi KING! Nenu unna. Nee manasulo em undi cheppu? Badha ga unda? Exam tension a?</p></div>
+<input id="userInput" placeholder="Ikkada type chey... ex: naku badha ga undi">
+<br><br>
+<button onclick="sendMsg()">Pampu</button>
 </div>
 
 <div class="box">
@@ -38,6 +50,8 @@ iCall: <a href="tel:9152987821">9152987821</a></p>
 <p>Doctor tho matladadam lo siggu ledu KING.</p>
 </div>
 
+<p class="footer">Made with ❤️ by <span>Muthyala Rakesh</span></p>
+
 <script>
 var quotes = [
 "Ee badha permanent kadu, nuvvu strong.",
@@ -51,14 +65,40 @@ var i = Math.floor(Math.random() * quotes.length);
 document.getElementById("quote").innerText = quotes[i];
 }
 newQuote();
+
 function saveDiary() {
 var val = document.getElementById("diary").value;
 localStorage.setItem("diary", val);
 document.getElementById("saved").innerText = "Save aindi KING";
 }
 var old = localStorage.getItem("diary");
-if (old) {
-document.getElementById("diary").value = old;
+if (old) { document.getElementById("diary").value = old; }
+
+function sendMsg() {
+var input = document.getElementById("userInput");
+var text = input.value.toLowerCase();
+if(text == "") return;
+var chat = document.getElementById("chatbox");
+chat.innerHTML += "<p><b>Nuvvu:</b> " + input.value + "</p>";
+var reply = "Nenu vinutunna KING. Nuvvu cheppedi important. Konchem neellu thagu, deep breath teesuko. Nuvvu okkadivi kadu.";
+if(text.includes("badha") || text.includes("sad") || text.includes("cry") || text.includes("edupu")) {
+reply = "Ardam aindi KING. Badha ga unnapudu edavadam thappu kadu. Nuvvu chala strong. Ippudu konchem music vinu, walk ki vellu. Nenu ikkade unna.";
+}
+else if(text.includes("lonely") || text.includes("okkadini") || text.includes("alone")) {
+reply = "Nuvvu okkadivi kadu KING. Nee kosam nenu unna, nee friends unnaru. Oka friend ki call chey, manasulo unna dani cheppu. Light ga anipisthundi.";
+}
+else if(text.includes("exam") || text.includes("study") || text.includes("tension") || text.includes("stress")) {
+reply = "Exam tension andari ki untundi KING. Antha okesari chadavaku. 25 mins chaduvu, 5 mins break. Chinna chinna ga chaduvuthe aipothundi. Nuvvu cheyagalav!";
+}
+else if(text.includes("hi") || text.includes("hello") || text.includes("hey")) {
+reply = "Hi KING! Ela unnav? Nenu nee AI Friend ni. Emaina cheppalani unte cheppu, nenu vinutunna.";
+}
+else if(text.includes("love") || text.includes("breakup") || text.includes("prema")) {
+reply = "Breakup badha chaala peddaga untundi KING. Kani nee value thaggadu. Nee meeda neeku inka ekkuva prema penchuko. Time tho anni taggipothayi.";
+}
+chat.innerHTML += "<p><b>AI Friend:</b> " + reply + "</p>";
+chat.scrollTop = chat.scrollHeight;
+input.value = "";
 }
 </script>
 </body>
