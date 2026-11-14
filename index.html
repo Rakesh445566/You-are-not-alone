@@ -3,115 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>You Are Not Alone</title>
+<title>You Are Not Alone - By Rakesh</title>
 <style>
+* { box-sizing: border-box; }
 body {
   font-family: Arial;
-  background: #FFE9C9;
-  text-align: center;
+  margin: 0;
   padding: 15px;
+  text-align: center;
+  background: linear-gradient(135deg, #FF9A9E, #FAD0C4, #FFECD2, #A1C4FD, #C2E9FB);
+  background-size: 300% 300%;
+  animation: bgMove 10s infinite;
 }
-.box {
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.top {
   background: white;
   padding: 20px;
-  border-radius: 20px;
-  margin: 12px auto;
+  border-radius: 25px;
+  margin: 10px auto;
   max-width: 500px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
-button {
-  background: #EA580C;
+.top h1 {
+  font-size: 28px;
+  background: linear-gradient(90deg, #FF512F, #DD2476);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.box {
+  padding: 20px;
+  border-radius: 25px;
+  margin: 14px auto;
+  max-width: 500px;
   color: white;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 12px;
-  font-size: 16px;
-  margin: 4px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
+.c1 { background: linear-gradient(135deg, #FF512F, #F09819); }
+.c2 { background: linear-gradient(135deg, #8E2DE2, #4A00E0); }
+.c3 { background: linear-gradient(135deg, #11998E, #38EF7D); }
+.c4 { background: linear-gradient(135deg, #FC4A1A, #F7B733); }
+.c5 { background: linear-gradient(135deg, #2193B0, #6DD5ED); }
+.c6 { background: linear-gradient(135deg, #EE0979, #FF6A00); }
+.c7 { background: linear-gradient(135deg, #0F2027, #203A43, #2C5364); }
+.c8 { background: linear-gradient(135deg, #FF0099, #493240); }
+.c9 { background: linear-gradient(135deg, #00C853, #00B0FF); }
+button {
+  background: white;
+  color: #333;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+button:active { transform: scale(0.95); }
 input, textarea {
   width: 90%;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  margin: 5px;
+  padding: 12px;
+  border-radius: 15px;
+  border: none;
+  margin: 6px;
+  font-size: 15px;
 }
+.gift { font-size: 60px; cursor: pointer; animation: bounce 1s infinite; }
+@keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.footer { color: #333; font-weight: bold; margin: 20px; }
 </style>
 </head>
 <body>
 
-<h1>You Are Not Alone 🤗</h1>
-<p>Made by Muthyala Rakesh 👑</p>
+<div class="top">
+  <h1>🌈 You Are Not Alone 🤗</h1>
+  <p>👑 Made by <b>Muthyala Rakesh</b> | Nuvvu okkadivi kadu!</p>
+  <button onclick="changeBg()">🎨 Colour Marachu</button>
+</div>
 
-<div class="box">
+<div class="box c1">
   <h2>🎁 Gift Box</h2>
-  <div style="font-size:50px" onclick="gift()">🎁</div>
+  <div class="gift" onclick="gift()">🎁</div>
   <p id="giftMsg">Gift ni nokku KING!</p>
 </div>
 
-<div class="box">
-  <h2>✨ Quote</h2>
+<div class="box c2">
+  <h2>✨ Roju Quote</h2>
   <p id="quote">Loading...</p>
-  <button onclick="newQuote()">Kottha Quote</button>
+  <button onclick="newQuote()">Kottha Quote 💫</button>
 </div>
 
-<div class="box">
-  <h2>🎭 Mood</h2>
-  <button onclick="mood('Happy')">😊</button>
-  <button onclick="mood('Sad')">😢</button>
-  <button onclick="mood('Angry')">😡</button>
-  <p id="moodMsg">Mood select chey</p>
+<div class="box c3">
+  <h2>🎭 Nee Mood Enti?</h2>
+  <button onclick="mood('Happy 😊')">😊 Happy</button>
+  <button onclick="mood('Sad 😢')">😢 Sad</button>
+  <button onclick="mood('Angry 😡')">😡 Angry</button>
+  <p id="moodMsg">Mood select chey KING!</p>
 </div>
 
-<div class="box">
-  <h2>📓 Diary</h2>
+<div class="box c4">
+  <h2>📓 Naa Diary</h2>
   <textarea id="diary" placeholder="Manasu lo em undho rayi..."></textarea><br>
-  <button onclick="saveDiary()">Save</button>
+  <button onclick="saveDiary()">💾 Save Chey</button>
   <p id="diaryMsg"></p>
 </div>
 
-<div class="box">
-  <h2>🫁 Breathing</h2>
-  <p id="breathMsg">Nose tho pilchu, nora tho vadulu</p>
-  <button onclick="breathe()">Start Breathing</button>
+<div class="box c5">
+  <h2>🫁 Breathing - Relax Avvu</h2>
+  <p style="font-size:40px">🧘</p>
+  <p id="breathMsg">Nose tho pilchu... Nora tho vadulu...</p>
+  <button onclick="breathe()">Start Breathing 🌬️</button>
 </div>
 
-<div class="box">
+<div class="box c6">
   <h2>🏆 Daily Challenge</h2>
   <p id="challenge">Loading...</p>
-  <button onclick="newChallenge()">Kottha Challenge</button>
+  <button onclick="newChallenge()">🎲 Kottha Challenge</button>
 </div>
 
-<div class="box">
-  <h2>🤫 Secret Box</h2>
-  <textarea id="secret" placeholder="Evariki cheppaleni mata..."></textarea><br>
-  <button onclick="saveSecret()">Secret Save</button>
+<div class="box c7">
+  <h2>🤫 Secret Box - 100% Private</h2>
+  <textarea id="secret" placeholder="Evariki cheppaleni mata ikkada rayi..."></textarea><br>
+  <button onclick="saveSecret()">🔒 Secret Save</button>
   <p id="secretMsg"></p>
 </div>
 
-<div class="box">
+<div class="box c8">
   <h2>🌙 Night Story</h2>
-  <p id="story">Story kavala?</p>
-  <button onclick="nightStory()">Story Cheppu</button>
+  <p id="story">Story kavala KING?</p>
+  <button onclick="nightStory()">📖 Story Cheppu</button>
 </div>
 
-<div class="box">
-  <h2>💬 Share</h2>
-  <button onclick="share()" style="background:#25D366">WhatsApp lo Share</button>
+<div class="box c9">
+  <h2>💬 Friends Ki Share Chey</h2>
+  <p>Nee friends kuda happy avvali kada!</p>
+  <button onclick="share()">📲 WhatsApp lo Share</button>
 </div>
 
-<div class="box">
-  <h2>🆘 Help</h2>
-  <p>Tele MANAS: 14416</p>
+<div class="top">
+  <h3>🆘 Help Kavali Ante</h3>
+  <p>Tele MANAS: <b>14416</b></p>
+  <p>❤️ Nuvvu eppudu okkadivi kadu KING!</p>
 </div>
 
-<p><b>Made with ❤️ by Muthyala Rakesh</b></p>
+<p class="footer">Made with ❤️ by Muthyala Rakesh</p>
 
 <script>
 function gift() {
-  let g = ["Nuvvu handsome KING!", "Nee smile super!", "Nuvvu gelusthav!", "Ee roju manchi jaruguthundi!"];
+  let g = ["Nuvvu handsome KING! 😎", "Nee smile super! 😍", "Nuvvu gelusthav KING! 🔥", "Ee roju manchi jaruguthundi! ✨", "Chocolate thinru KING! 🍫"];
   document.getElementById("giftMsg").innerText = g[Math.floor(Math.random()*g.length)];
 }
 function newQuote() {
-  let q = ["Ee badha permanent kadu.", "Nuvvu strong KING!", "Rest kuda progress ye.", "Nuvvu odipovu!"];
+  let q = ["Ee badha permanent kadu, nuvvu strong!", "Nuvvu intha varaku vachav ante nuvve GREAT!", "Rest kuda progress ye KING!", "Nuvvu odipovu, nuvvu KING vi!"];
   document.getElementById("quote").innerText = q[Math.floor(Math.random()*q.length)];
 }
 newQuote();
@@ -120,14 +166,14 @@ function mood(m) {
 }
 function saveDiary() {
   localStorage.setItem("diary", document.getElementById("diary").value);
-  document.getElementById("diaryMsg").innerText = "Save aindi KING!";
+  document.getElementById("diaryMsg").innerText = "Save aindi KING! ✅";
 }
 function breathe() {
-  document.getElementById("breathMsg").innerText = "Inhale... Exhale... Super KING! Tension poyindhi!";
+  document.getElementById("breathMsg").innerText = "Inhale... 1...2...3... Exhale... Super KING! Tension poyindhi! 😌";
 }
 function newChallenge() {
-  let c = ["Amma ki Thanks cheppu ❤️", "10 mins phone pakkana pettu 📱", "Oka friend ki manchi mata cheppu 😊", "Water thagu 💧"];
-  document.getElementById("challenge").innerText = c[Math.floor(Math.random()*c.length)];
+  let c = ["Amma ki Thanks cheppu ❤️", "10 mins phone pakkana pettu 📱", "Oka friend ki manchi mata cheppu 😊", "2 glasses water thagu 💧", "10 mins naduvu 🚶"];
+  document.getElementById("challenge").innerText = "🏆 Challenge: " + c[Math.floor(Math.random()*c.length)];
 }
 newChallenge();
 function saveSecret() {
@@ -136,10 +182,17 @@ function saveSecret() {
   document.getElementById("secret").value = "";
 }
 function nightStory() {
-  document.getElementById("story").innerText = "Oka KING undevadu, kastalu chusadu kani odipoledu! Aa KING nuvve!";
+  let s = ["Oka KING undevadu, kastalu chusadu kani odipoledu! Aa KING nuvve!", "Oka chinna pillodu stars ni chusi - Nuvvu navvithe nenu velugutha anindhi!", "Oka pilli vachi badha lo unna ammayi daggara padukundhi, thanu navvindhi!"];
+  document.getElementById("story").innerText = "🌙 " + s[Math.floor(Math.random()*s.length)];
 }
 function share() {
-  window.open("https://wa.me/?text=" + encodeURIComponent("Nenu chesina website chudu! " + window.location.href));
+  window.open("https://wa.me/?text=" + encodeURIComponent("Nenu chesina COLOURFUL website chudu! " + window.location.href));
+}
+let colors = ["linear-gradient(135deg,#FF9A9E,#FAD0C4)", "linear-gradient(135deg,#A1C4FD,#C2E9FB)", "linear-gradient(135deg,#84FAB0,#8FD3F4)", "linear-gradient(135deg,#FFECD2,#FCB69F)"];
+let ci = 0;
+function changeBg() {
+  document.body.style.background = colors[ci % colors.length];
+  ci++;
 }
 </script>
 
